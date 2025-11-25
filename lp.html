@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stable Minds | Wellness Ranch Therapy</title>
+    <meta name="description" content="Help us keep the barn stable, so they can keep minds stable. Join the Stable Minds program.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; }
+        
+        /* Hero Overlay Gradient */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
+        }
+        
+        .card-hover:hover { transform: translateY(-8px); }
+        
+        /* Modal Animation */
+        .modal { transition: opacity 0.3s ease, pointer-events 0.3s ease; opacity: 0; pointer-events: none; }
+        .modal.active { opacity: 1; pointer-events: auto; }
+        
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f5f5f4; }
+        ::-webkit-scrollbar-thumb { background: #d97706; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased relative selection:bg-amber-200 selection:text-amber-900">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex flex-col">
+                <a href="#" class="text-2xl font-bold tracking-widest uppercase hover:text-amber-200 transition font-serif">Wellness Ranch Therapy</a>
+                <span class="text-[10px] tracking-wide text-amber-200 uppercase opacity-90 hidden sm:block">Rancho Cucamonga, CA</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#pick-your-partner" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-full text-sm font-bold transition shadow-lg hidden md:block uppercase tracking-wider">
+                    Join Stable Minds
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+        <!-- Background Image: Thunder + Stable -->
+        <div class="absolute inset-0 z-0">
+            <!-- 使用您設定的 img1.png -->
+            <img src="img1.png" 
+                 alt="Thunder the therapy horse in front of a warm stable" 
+                 class="w-full h-full object-cover animate-[scale-110_40s_ease-in-out_infinite_alternate]">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 md:px-12 pt-20">
+            <div class="max-w-3xl text-white reveal active">
+                <div class="inline-flex items-center gap-3 border-l-4 border-amber-500 pl-4 mb-8 backdrop-blur-sm bg-black/20 py-2 pr-6 rounded-r-lg">
+                    <i class="fas fa-home text-amber-400"></i>
+                    <span class="uppercase tracking-[0.2em] text-sm font-bold text-amber-100">The Stable Minds Program</span>
+                </div>
+                
+                <!-- Short, Powerful Headline -->
+                <h1 class="text-6xl md:text-8xl font-bold leading-none mb-6 drop-shadow-lg tracking-tight">
+                    Stable Barn.<br>
+                    <span class="text-amber-200 italic serif">Stable Minds.</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-stone-100 mb-10 max-w-xl leading-relaxed drop-shadow-md font-light">
+                    Join the <strong>Stable Minds</strong> donation program. Your support gives therapy animals a safe home, so they can provide a safe space for veterans and youth.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <button onclick="scrollToSection('pick-your-partner')" class="bg-amber-600 hover:bg-amber-700 text-white px-10 py-4 rounded-full font-bold text-center transition duration-300 shadow-[0_10px_20px_-10px_rgba(217,119,6,0.5)] transform hover:-translate-y-1 border-2 border-amber-500 hover:border-amber-600 uppercase tracking-wide">
+                        Join Stable Minds
+                    </button>
+                    <button onclick="scrollToSection('impact')" class="group flex items-center justify-center gap-3 text-white border-2 border-white/30 hover:bg-white/10 px-8 py-4 rounded-full font-semibold transition backdrop-blur-sm">
+                        <span>See our impact</span>
+                        <i class="fas fa-arrow-down group-hover:translate-y-1 transition"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. ABOUT & IMPACT (SPLIT SECTION) -->
+    <section id="impact" class="py-24 px-6 md:px-12 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold text-stone-900 serif mb-4">Rescuing Animals to Rescue People</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Left: Education (What is Therapy?) -->
+                <div class="reveal">
+                    <div class="bg-stone-50 p-8 rounded-2xl border border-stone-100 h-full">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600"><i class="fas fa-horse-head"></i></div>
+                            <h3 class="text-2xl font-bold text-stone-800 serif">What is Wellness Ranch Therapy?</h3>
+                        </div>
+                        <p class="text-lg text-stone-600 mb-6 leading-relaxed">
+                            Wellness Ranch Therapy is a sanctuary where mental health meets nature. But how does it work?
+                        </p>
+                        <p class="text-lg text-stone-700 font-medium italic mb-6 border-l-4 border-amber-400 pl-4">
+                            "Horses act as mirrors to our emotions. They help trauma survivors process feelings without words. When a horse accepts you, you learn to accept yourself."
+                        </p>
+                        <p class="text-stone-600 leading-relaxed">
+                            For a veteran with PTSD or a child with anxiety, traditional talk therapy can be intimidating. Here, under the open sky, healing happens naturally.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Transparency (Where money goes) -->
+                <div class="reveal delay-200">
+                    <div class="h-full pl-0 lg:pl-8 border-l-0 lg:border-l border-stone-200">
+                        <h3 class="text-2xl font-bold text-stone-800 serif mb-6">Where Your Money Goes</h3>
+                        <p class="text-stone-600 mb-8 leading-relaxed">
+                            Animal therapy is an alternative and experimental field that is difficult to sustain for profit. We offer the promise that <strong class="text-amber-700">100% of your support</strong> goes directly to the herd.
+                        </p>
+                        
+                        <ul class="space-y-8">
+                            <li class="flex items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mr-4 group-hover:bg-amber-600 group-hover:text-white transition duration-300 shadow-sm">
+                                    <i class="fas fa-carrot text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-lg">Nutrition & Health</h4>
+                                    <p class="text-stone-500">Quality timothy hay, grain, and specialized supplements for our senior animals.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mr-4 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-sm">
+                                    <i class="fas fa-stethoscope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-lg">Professional Care</h4>
+                                    <p class="text-stone-500">Routine farrier visits for hoof health and regular veterinary check-ups.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0 mr-4 group-hover:bg-green-600 group-hover:text-white transition duration-300 shadow-sm">
+                                    <i class="fas fa-hand-holding-heart text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-lg">Subsidized Therapy</h4>
+                                    <p class="text-stone-500">Your support lowers the cost of sessions for families in crisis and veterans.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PICK YOUR PARTNER (THE ASK) -->
+    <section id="pick-your-partner" class="py-24 px-6 md:px-12 bg-stone-100 relative overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30"></div>
+        
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-16 max-w-2xl mx-auto reveal">
+                <span class="text-amber-600 font-bold uppercase tracking-widest text-xs block mb-3">Join Stable Minds</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-6 serif">Pick Your Partner</h2>
+                <p class="text-xl text-stone-600 mb-2">Sponsor the animal that speaks to your heart.</p>
+                <p class="text-md text-amber-700 font-medium italic"><i class="fas fa-envelope-open-text mr-2"></i>Receive a special letter sharing exactly how your gift made their day better.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
+                
+                <!-- Tier 2: Thunder (Featured) -->
+                <div class="bg-stone-900 text-white rounded-2xl overflow-hidden shadow-2xl card-hover transition duration-300 border-2 border-amber-600 relative z-10 reveal flex flex-col h-full">
+                    <div class="absolute top-4 right-4 bg-amber-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-lg uppercase tracking-wider">Most Needed</div>
+                    <div class="h-72 bg-stone-800 overflow-hidden relative group">
+                         <!-- 請下載深色馬的圖片並命名為 img3.png -->
+                         <img src="img3.png" 
+                              alt="Thunder the therapy horse" 
+                              class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent"></div>
+                         <div class="absolute bottom-4 left-6">
+                             <h3 class="font-bold text-3xl serif text-amber-400">Thunder</h3>
+                             <p class="text-stone-300 text-xs font-bold uppercase tracking-wider"><i class="fas fa-anchor mr-1"></i> The Anchor</p>
+                         </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <p class="text-stone-300 mb-6 text-sm leading-relaxed flex-grow">
+                            Thunder stands still for hours with veterans, providing a safe "stable mind" when theirs feels chaotic. He is the heart of our PTSD program.
+                        </p>
+                        <div class="pt-6 border-t border-stone-700 mt-auto">
+                            <p class="text-xs font-bold text-amber-500/80 uppercase tracking-wide mb-3 text-center">Select Donation Amount</p>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button onclick="openModal('Thunder', '5')" class="bg-stone-800 hover:bg-amber-700 text-white font-bold py-3 rounded-lg border border-stone-700 hover:border-amber-600 transition">
+                                    $5
+                                </button>
+                                <button onclick="openModal('Thunder', '10')" class="bg-stone-800 hover:bg-amber-700 text-white font-bold py-3 rounded-lg border border-stone-700 hover:border-amber-600 transition">
+                                    $10
+                                </button>
+                                <button onclick="openModal('Thunder', '50')" class="bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 rounded-lg border border-amber-500 shadow-lg transition transform hover:-translate-y-0.5">
+                                    $50
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tier 3: Rain -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover transition duration-300 border border-stone-100 reveal flex flex-col h-full">
+                    <div class="h-72 bg-blue-50 overflow-hidden relative group">
+                         <!-- 請下載白色/灰色馬的圖片並命名為 img4.png -->
+                         <img src="img4.png" 
+                              alt="Rain the therapy horse" 
+                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-90"></div>
+                         <div class="absolute bottom-4 left-6 text-white">
+                            <h3 class="font-bold text-2xl serif">Rain</h3>
+                            <p class="text-blue-200 text-xs font-bold uppercase tracking-wider"><i class="fas fa-wind mr-1"></i> The Spirit</p>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <p class="text-stone-600 mb-6 text-sm leading-relaxed flex-grow">
+                            Rain is intuitive and sensitive. She works with clients on building trust and boundaries. She requires special supplements for her joint health.
+                        </p>
+                        <div class="pt-6 border-t border-stone-100 mt-auto">
+                            <p class="text-xs font-bold text-stone-400 uppercase tracking-wide mb-3 text-center">Select Donation Amount</p>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button onclick="openModal('Rain', '5')" class="bg-stone-50 hover:bg-stone-200 text-stone-800 font-bold py-3 rounded-lg border border-stone-200 transition">
+                                    $5
+                                </button>
+                                <button onclick="openModal('Rain', '10')" class="bg-stone-50 hover:bg-stone-200 text-stone-800 font-bold py-3 rounded-lg border border-stone-200 transition">
+                                    $10
+                                </button>
+                                <button onclick="openModal('Rain', '50')" class="bg-stone-50 hover:bg-stone-200 text-stone-800 font-bold py-3 rounded-lg border border-stone-200 transition">
+                                    $50
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                 <a href="#" onclick="openModal('The Whole Herd', 'Custom')" class="inline-flex items-center text-stone-500 font-bold border-b-2 border-stone-300 hover:text-amber-700 hover:border-amber-700 transition pb-1">
+                    Sponsor the Whole Herd (Custom Amount) <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LEAD GENERATION (STORIES) -->
+    <section class="py-24 px-6 md:px-12 bg-amber-50 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-amber-100 rounded-full opacity-50 blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-stone-200 rounded-full opacity-50 blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto relative z-10 text-center max-w-2xl reveal">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-amber-600">
+                <i class="fas fa-envelope-open-text text-2xl"></i>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 serif text-stone-900">Get Closer to the Herd</h2>
+            <p class="text-stone-600 text-lg mb-10 leading-relaxed">
+                Not ready to join Stable Minds yet? That's okay. <br class="hidden md:block">
+                Sign up to receive <strong>exclusive background stories</strong> regarding Thunder and Rain, and be the first to meet any new animal members.
+            </p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto relative" onsubmit="event.preventDefault(); alert('Thanks for subscribing! Check your inbox for the first story.');">
+                <input type="email" placeholder="Your email address" class="w-full pl-6 px-6 py-4 rounded-full border border-stone-300 bg-white text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm" required>
+                <button type="submit" class="bg-stone-900 hover:bg-stone-800 text-white font-bold px-8 py-4 rounded-full transition shadow-lg whitespace-nowrap">
+                    Send Me Stories
+                </button>
+            </form>
+            
+            <p class="text-[10px] text-stone-400 mt-6 uppercase tracking-wider">
+                <i class="fas fa-lock mr-1"></i> No spam. Just heartwarming tales.
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 py-16 px-6 md:px-12 border-t border-stone-800">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-10">
+            <div class="mb-4 md:mb-0">
+                <span class="text-2xl font-bold tracking-widest uppercase text-white font-serif">Wellness Ranch Therapy</span>
+                <p class="mt-4 text-sm max-w-xs mx-auto md:mx-0 text-stone-500 leading-relaxed">
+                    A 501(c)(3) Non-profit Organization.<br>
+                    Rancho Cucamonga, CA.
+                </p>
+            </div>
+            <div class="text-center">
+                <p class="serif italic text-2xl text-amber-600 mb-2 opacity-90">"Stable Barn. Stable Minds."</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-stone-500 hover:text-white transition transform hover:scale-110"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="text-stone-500 hover:text-white transition transform hover:scale-110"><i class="fab fa-tiktok text-2xl"></i></a>
+                <a href="#" class="text-stone-500 hover:text-white transition transform hover:scale-110"><i class="fab fa-facebook-f text-2xl"></i></a>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-stone-800 text-center text-xs text-stone-700 flex justify-center gap-4">
+            <span>&copy; 2024 Wellness Ranch Therapy. All rights reserved.</span>
+            <a href="#" class="hover:text-stone-500">Privacy</a>
+            <a href="#" class="hover:text-stone-500">Contact</a>
+        </div>
+    </footer>
+
+    <!-- DONATION MODAL -->
+    <div id="donationModal" class="modal fixed inset-0 z-[100] flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-stone-900/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 overflow-hidden transform transition-all scale-95" id="modalContent">
+            <!-- Modal Header -->
+            <div class="bg-amber-600 text-white p-6 flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-lg serif">Make a One-Time Gift</h3>
+                    <p class="text-amber-100 text-xs flex items-center gap-1 opacity-90">Secure Donation</p>
+                </div>
+                <button onclick="closeModal()" class="text-amber-200 hover:text-white transition"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-8">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center text-stone-800 font-bold text-xl border border-stone-200">
+                        <i class="fas fa-horse"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-stone-500 uppercase font-bold tracking-wider">Giving To</p>
+                        <h4 id="sponsorTarget" class="text-2xl font-bold text-stone-900 serif">Thunder</h4>
+                    </div>
+                    <div class="ml-auto text-right">
+                        <span id="sponsorAmount" class="block text-2xl font-bold text-amber-600">$50</span>
+                        <span class="text-xs text-stone-400">one-time</span>
+                    </div>
+                </div>
+                
+                <form onsubmit="event.preventDefault(); alert('Redirecting to secure payment processor...'); closeModal();">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-xs font-bold text-stone-500 uppercase mb-2">Email for Thank You Letter</label>
+                            <input type="email" placeholder="you@example.com" class="w-full border-b-2 border-stone-200 bg-stone-50 px-4 py-3 focus:outline-none focus:border-amber-500 transition rounded-t-lg" required>
+                        </div>
+                        <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-bold py-4 rounded-xl transition shadow-lg flex justify-center items-center gap-3">
+                            <span>Proceed to Payment</span>
+                            <i class="fas fa-lock text-xs opacity-50"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navbar Sticky Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-stone-900/95', 'shadow-md', 'py-3', 'backdrop-blur-md');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('bg-stone-900/95', 'shadow-md', 'py-3', 'backdrop-blur-md');
+                navbar.classList.add('py-4');
+            }
+            revealOnScroll();
+        });
+
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        // Smooth Scroll Function
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal Functions
+        function openModal(name, amount) {
+            document.getElementById('sponsorTarget').innerText = name;
+            document.getElementById('sponsorAmount').innerText = '$' + amount;
+            
+            const modal = document.getElementById('donationModal');
+            const content = document.getElementById('modalContent');
+            
+            modal.classList.add('active');
+            setTimeout(() => {
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('donationModal');
+            const content = document.getElementById('modalContent');
+            
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.remove('active');
+            }, 200);
+        }
+
+        // Trigger reveal on load
+        window.onload = revealOnScroll;
+    </script>
+</body>
+</html>
